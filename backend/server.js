@@ -14,10 +14,14 @@ const connection = require('./config/db');
 app.use(cors());
 //specialize full path to connect server to frontend
 app.use(express.static(path.join(__dirname,'../frontend/megas/dist')));
-//import register route
-const registerRoutes = require('./routes/registerRoutes');  
+//import all routes
+const registerRoutes = require('./routes/registerRoutes');
+const loginRoutes = require('./routes/loginRoutes');
+
 //use routes
 app.use('/api', registerRoutes);
+app.use('/api', loginRoutes);
+
 
 
 
